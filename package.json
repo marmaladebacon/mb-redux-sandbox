@@ -10,6 +10,7 @@
     "@types/react-dom": "16.8.2",
     "@types/react-redux": "^7.0.1",
     "@types/redux": "^3.6.0",
+    "@types/redux-immutable-state-invariant": "^2.1.0",
     "@types/redux-thunk": "^2.1.0",
     "@types/toastr": "^2.1.36",
     "react": "^16.8.3",
@@ -35,5 +36,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "redux-immutable-state-invariant": "^2.1.0"
+  }
 }
