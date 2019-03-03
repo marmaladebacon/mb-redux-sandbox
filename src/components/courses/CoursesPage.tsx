@@ -19,6 +19,7 @@ class CoursesPage extends React.Component {
 
   }
 
+  /*
   onTitleChange = (event:any) =>{
     const course = this.state.course;
     course.title = event.target.value;
@@ -30,15 +31,26 @@ class CoursesPage extends React.Component {
 
   onClickSave = (event:any) => {
     (this.props as any).actions.createCourse(this.state.course);
-  }
+  } */
 
   courseRow = (course:any, index:number) =>{
+    console.log(course);
     return <div key={index}>{course.title}</div>
   }
 
   render() {
     //debugger;
     return (
+      <div>
+        <h1>Courses</h1>
+        {(this.props as any).propscourses.map(this.courseRow)}
+      </div>
+
+    )
+  }
+}
+
+/* old
       <div>
         <h1>Courses</h1>
         {(this.props as any).propscourses.map(this.courseRow)}
@@ -53,16 +65,14 @@ class CoursesPage extends React.Component {
           onClick={this.onClickSave} />
 
       </div>
-
-    )
-  }
-}
+ */
 
 function mapStateToProps(state:any, ownProps:any) {
   //debugger;
   // returns the object containing the properties we'd like to see exposed on our component
   // courses here means this.props.courses is accessible in the template render 
   // state.courses here is defined by the 'courses' property we put in our root reducer
+  console.log(state);
   return {
     propscourses: state.courses
   };
