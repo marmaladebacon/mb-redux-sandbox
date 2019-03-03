@@ -41,7 +41,7 @@ class CoursesPage extends React.Component {
     return (
       <div>
         <h1>Courses</h1>
-        {(this.props as any).courses.map(this.courseRow)}
+        {(this.props as any).propscourses.map(this.courseRow)}
         <h2>Add Course</h2>        
         <input 
           type="text"
@@ -64,7 +64,7 @@ function mapStateToProps(state:any, ownProps:any) {
   // courses here means this.props.courses is accessible in the template render 
   // state.courses here is defined by the 'courses' property we put in our root reducer
   return {
-    courses: state.courses
+    propscourses: state.courses
   };
 }
 
