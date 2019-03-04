@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import CourseList from './CourseList';
 import * as courseActions from '../../actions/courseActions';
 
 class CoursesPage extends React.Component {
@@ -33,19 +34,23 @@ class CoursesPage extends React.Component {
     (this.props as any).actions.createCourse(this.state.course);
   } */
 
+  componentDidMount(){
+    //(this.props as any).actions.loadCourses();
+  }
+
   courseRow = (course:any, index:number) =>{
     console.log(course);
     return <div key={index}>{course.title}</div>
   }
 
   render() {
-    //debugger;
+    const courses = (this.props as any).propscourses;
+
     return (
       <div>
-        <h1>Courses</h1>
-        {(this.props as any).propscourses.map(this.courseRow)}
+        <h1>Courses</h1>        
+        <CourseList courses={courses} />
       </div>
-
     )
   }
 }

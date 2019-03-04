@@ -6,6 +6,7 @@ import {loadCourses} from './actions/courseActions';
 import configureStore from './store/configureStore';
 import {Provider} from 'react-redux';
 import {AnyAction} from 'redux';
+import {ThunkDispatch} from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
 
 import './index.css';
@@ -17,7 +18,8 @@ const store = configureStore({
 });
 
 // using any because typed redux-thunk is a pain, consider redux-saga
-store.dispatch((loadCourses()) as any);
+store.dispatch<any>((loadCourses()));
+//store.dispatch(loadCourses());
 
 console.log(store.getState());
 ReactDOM.render(
