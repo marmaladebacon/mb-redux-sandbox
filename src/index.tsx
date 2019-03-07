@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 
 import {loadCourses} from './actions/courseActions';
+import {loadAuthors} from './actions/authorActions';
 import configureStore from './store/configureStore';
 import {Provider} from 'react-redux';
 import {AnyAction} from 'redux';
@@ -12,13 +13,18 @@ import * as serviceWorker from './serviceWorker';
 import './index.css';
 import './styles/styles.css';
 import 'bootstrap/dist/css/bootstrap.css'; //Webpack can import and bundle css files, take advantage of it
+import { IMbStoreState } from './reducers/initialState';
 
-const store = configureStore({
-  courses:[{title: 'Not here yet'}],  
-});
+const customInitialState: IMbStoreState = {
+  courses:[{title: 'Not here yet'}],
+  authors:[],
+}
+
+const store = configureStore(customInitialState);
 
 // using any because typed redux-thunk is a pain, consider redux-saga
-store.dispatch<any>((loadCourses()));
+store.dispatch<any>(loadCourses());
+store.dispatch<any>(loadAuthors());
 //store.dispatch(loadCourses());
 
 console.log(store.getState());

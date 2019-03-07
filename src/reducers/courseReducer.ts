@@ -1,6 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
+import { initialState } from './initialState';
 
-export default function courseReducer(state:any, action:any) {  
+export const courseReducer = (state=initialState.courses, action:any) => {  
   if(!state){
     state = [];
   }
